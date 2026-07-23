@@ -1,0 +1,11 @@
+.analytics-chart {
+  width: 100%;
+}
+
+.chart-empty {
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}

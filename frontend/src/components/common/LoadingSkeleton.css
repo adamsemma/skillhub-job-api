@@ -1,0 +1,128 @@
+/* LoadingSkeleton.css */
+
+.skeleton-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* Shimmer base — applied to every grey block */
+.skeleton-container [class^="skeleton-"]:not(.skeleton-container):not(.skeleton-card):not(.skeleton-result):not(.skeleton-header):not(.skeleton-body):not(.skeleton-result-header):not(.skeleton-result-body):not(.skeleton-result-footer) {
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-shine) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-container.light {
+  --skeleton-base: #e2e8f0;
+  --skeleton-shine: #f1f5f9;
+  --skeleton-card-bg: #ffffff;
+  --skeleton-border: #e2e8f0;
+}
+
+.skeleton-container.dark {
+  --skeleton-base: #2d3748;
+  --skeleton-shine: #3d4a5c;
+  --skeleton-card-bg: #1a202c;
+  --skeleton-border: #2d3748;
+}
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Cards */
+.skeleton-card,
+.skeleton-result {
+  background: var(--skeleton-card-bg);
+  border: 1px solid var(--skeleton-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* AI summary skeleton */
+.skeleton-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.skeleton-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 40%;
+}
+
+.skeleton-body,
+.skeleton-result-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.skeleton-line {
+  height: 12px;
+  width: 100%;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+/* Result skeletons */
+.skeleton-result-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skeleton-result-title {
+  height: 18px;
+  width: 70%;
+}
+
+.skeleton-result-url {
+  height: 12px;
+  width: 45%;
+}
+
+.skeleton-result-footer {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.skeleton-meta {
+  height: 24px;
+  width: 90px;
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-container * {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-card,
+  .skeleton-result {
+    padding: 1rem;
+  }
+}

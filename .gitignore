@@ -1,0 +1,8 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Each project also has its own .gitignore for its own dependency/build/env
+# patterns (backend/.gitignore, frontend/.gitignore).

@@ -13,10 +13,6 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Playwright
-RUN playwright install chromium
-RUN playwright install-deps
-
 # Copy application
 COPY . .
 
